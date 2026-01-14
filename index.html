@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charleston Battery | Digital Revenue Operating System</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             background: #0a0a0a;
@@ -18,28 +14,19 @@
             line-height: 1.6;
             padding: 40px 20px;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
         .header {
             text-align: center;
             margin-bottom: 60px;
             border-bottom: 1px solid #333;
             padding-bottom: 40px;
         }
-        
-        .logo-container {
-            margin-bottom: 30px;
-        }
-        
-        .logo-container img {
-            max-width: 180px;
-            height: auto;
-        }
-        
+
+        .logo-container { margin-bottom: 30px; }
+        .logo-container img { max-width: 180px; height: auto; }
+
         .header h1 {
             font-size: 42px;
             font-weight: 700;
@@ -47,23 +34,12 @@
             letter-spacing: -1px;
             color: #FFD700;
         }
-        
-        .header .subtitle {
-            font-size: 18px;
-            color: #888;
-            font-weight: 400;
-        }
-        
-        .header .date {
-            font-size: 14px;
-            color: #666;
-            margin-top: 8px;
-        }
-        
-        .section {
-            margin-bottom: 60px;
-        }
-        
+
+        .header .subtitle { font-size: 18px; color: #888; font-weight: 400; }
+        .header .date { font-size: 14px; color: #666; margin-top: 8px; }
+
+        .section { margin-bottom: 60px; }
+
         .section-title {
             font-size: 28px;
             font-weight: 600;
@@ -72,7 +48,7 @@
             border-left: 4px solid #FFD700;
             padding-left: 16px;
         }
-        
+
         .highlight-card {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             border-radius: 12px;
@@ -80,30 +56,13 @@
             margin-bottom: 40px;
             color: #fff;
         }
-        
-        .highlight-card.success {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        }
-        
-        .highlight-card.warning {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
 
-        .highlight-card.blue {
-            background: linear-gradient(135deg, #0046FF 0%, #0039CC 100%);
-        }
-        
-        .highlight-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        
-        .highlight-card p {
-            font-size: 16px;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
+        .highlight-card.success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .highlight-card.warning { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .highlight-card.blue { background: linear-gradient(135deg, #0046FF 0%, #0039CC 100%); }
+
+        .highlight-card h3 { font-size: 20px; margin-bottom: 12px; font-weight: 600; }
+        .highlight-card p { font-size: 16px; line-height: 1.7; opacity: 0.95; }
 
         .cost-breakdown-grid {
             display: grid;
@@ -119,13 +78,8 @@
             padding: 24px;
         }
 
-        .cost-card.current {
-            border: 2px solid #ef4444;
-        }
-
-        .cost-card.proposed {
-            border: 2px solid #10b981;
-        }
+        .cost-card.current { border: 2px solid #ef4444; }
+        .cost-card.proposed { border: 2px solid #10b981; }
 
         .cost-card h4 {
             font-size: 16px;
@@ -149,24 +103,10 @@
             border-top: 2px solid #FFD700;
         }
 
-        .cost-label {
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        .cost-value {
-            font-size: 14px;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .cost-value.negative {
-            color: #ef4444;
-        }
-
-        .cost-value.positive {
-            color: #10b981;
-        }
+        .cost-label { font-size: 14px; color: #aaa; }
+        .cost-value { font-size: 14px; font-weight: 600; color: #fff; }
+        .cost-value.negative { color: #ef4444; }
+        .cost-value.positive { color: #10b981; }
 
         .savings-total {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -176,22 +116,9 @@
             margin: 30px 0;
         }
 
-        .savings-total h3 {
-            font-size: 18px;
-            margin-bottom: 16px;
-            opacity: 0.9;
-        }
-
-        .savings-value {
-            font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .savings-detail {
-            font-size: 16px;
-            opacity: 0.9;
-        }
+        .savings-total h3 { font-size: 18px; margin-bottom: 16px; opacity: 0.9; }
+        .savings-value { font-size: 56px; font-weight: 700; margin-bottom: 8px; }
+        .savings-detail { font-size: 16px; opacity: 0.9; }
 
         .package-grid {
             display: grid;
@@ -208,10 +135,7 @@
             transition: all 0.3s;
         }
 
-        .package-card:hover {
-            border-color: #FFD700;
-            transform: translateY(-4px);
-        }
+        .package-card:hover { border-color: #FFD700; transform: translateY(-4px); }
 
         .package-card.recommended {
             border: 2px solid #10b981;
@@ -230,29 +154,11 @@
             margin-bottom: 16px;
         }
 
-        .package-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: #FFD700;
-            margin-bottom: 8px;
-        }
+        .package-name { font-size: 24px; font-weight: 700; color: #FFD700; margin-bottom: 8px; }
+        .package-price { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
+        .package-period { font-size: 14px; color: #666; margin-bottom: 24px; }
 
-        .package-price {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .package-period {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 24px;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 24px;
-        }
+        .package-features { list-style: none; margin-bottom: 24px; }
 
         .package-features li {
             padding: 8px 0;
@@ -261,9 +167,7 @@
             border-bottom: 1px solid #2a2a2a;
         }
 
-        .package-features li:last-child {
-            border-bottom: none;
-        }
+        .package-features li:last-child { border-bottom: none; }
 
         .package-features li::before {
             content: "✓ ";
@@ -300,29 +204,11 @@
             text-transform: uppercase;
         }
 
-        .avi-tier-price {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
+        .avi-tier-price { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+        .avi-tier-period { font-size: 12px; color: #666; margin-bottom: 16px; }
+        .avi-tier-savings { font-size: 12px; color: #10b981; margin-bottom: 16px; font-weight: 600; }
 
-        .avi-tier-period {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 16px;
-        }
-
-        .avi-tier-savings {
-            font-size: 12px;
-            color: #10b981;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .avi-tier-features {
-            list-style: none;
-            text-align: left;
-        }
+        .avi-tier-features { list-style: none; text-align: left; }
 
         .avi-tier-features li {
             padding: 6px 0;
@@ -331,9 +217,7 @@
             border-bottom: 1px solid #2a2a2a;
         }
 
-        .avi-tier-features li:last-child {
-            border-bottom: none;
-        }
+        .avi-tier-features li:last-child { border-bottom: none; }
 
         .time-breakdown-table {
             background: #1a1a1a;
@@ -359,13 +243,8 @@
             text-transform: uppercase;
         }
 
-        .table-row:last-child {
-            border-bottom: none;
-        }
-
-        .table-row:hover:not(.header) {
-            background: #222;
-        }
+        .table-row:last-child { border-bottom: none; }
+        .table-row:hover:not(.header) { background: #222; }
 
         .sponsorship-grid {
             display: grid;
@@ -381,15 +260,8 @@
             padding: 28px;
         }
 
-        .sponsorship-card h4 {
-            font-size: 18px;
-            color: #FFD700;
-            margin-bottom: 16px;
-        }
-
-        .sponsorship-card ul {
-            list-style: none;
-        }
+        .sponsorship-card h4 { font-size: 18px; color: #FFD700; margin-bottom: 16px; }
+        .sponsorship-card ul { list-style: none; }
 
         .sponsorship-card li {
             padding: 8px 0;
@@ -398,9 +270,7 @@
             border-bottom: 1px solid #2a2a2a;
         }
 
-        .sponsorship-card li:last-child {
-            border-bottom: none;
-        }
+        .sponsorship-card li:last-child { border-bottom: none; }
 
         .sponsorship-card li::before {
             content: "→ ";
@@ -425,15 +295,9 @@
             transition: all 0.3s;
         }
 
-        .value-prop-card:hover {
-            border-color: #FFD700;
-            transform: translateY(-4px);
-        }
+        .value-prop-card:hover { border-color: #FFD700; transform: translateY(-4px); }
 
-        .value-prop-icon {
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
+        .value-prop-icon { font-size: 36px; margin-bottom: 16px; }
 
         .value-prop-title {
             font-size: 16px;
@@ -444,10 +308,50 @@
             letter-spacing: 0.5px;
         }
 
-        .value-prop-description {
-            font-size: 14px;
-            color: #aaa;
-            line-height: 1.6;
+        .value-prop-description { font-size: 14px; color: #aaa; line-height: 1.6; }
+
+        /* NEW: AVI "Included in every plan" banner */
+        .avi-includes-card {
+            background: linear-gradient(135deg, #0f172a 0%, #0b1220 100%);
+            border: 1px solid #22304a;
+            border-radius: 12px;
+            padding: 28px;
+            margin: 22px 0 30px;
+        }
+
+        .avi-includes-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 12px;
+        }
+
+        .avi-includes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .avi-include-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 14px 14px;
+        }
+
+        .avi-include-title {
+            font-size: 13px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: 0.2px;
+        }
+
+        .avi-include-desc {
+            font-size: 13px;
+            color: #aab3c2;
+            line-height: 1.55;
         }
 
         .footer {
@@ -461,26 +365,17 @@
 
         @media (max-width: 968px) {
             .cost-breakdown-grid,
-            .sponsorship-grid {
-                grid-template-columns: 1fr;
-            }
+            .sponsorship-grid { grid-template-columns: 1fr; }
 
-            .package-grid {
-                grid-template-columns: 1fr;
-            }
+            .package-grid { grid-template-columns: 1fr; }
 
-            .avi-pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .avi-pricing-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .table-row {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
+            .table-row { grid-template-columns: 1fr; gap: 8px; }
 
-            .value-prop-grid {
-                grid-template-columns: 1fr;
-            }
+            .value-prop-grid { grid-template-columns: 1fr; }
+
+            .avi-includes-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -502,7 +397,7 @@
 
         <div class="section">
             <h2 class="section-title">Why Teams Choose an Operating System Over Point Solutions</h2>
-            
+
             <div class="value-prop-grid">
                 <div class="value-prop-card">
                     <div class="value-prop-icon">📊</div>
@@ -537,7 +432,7 @@
 
         <div class="section">
             <h2 class="section-title">Current vs Proposed Cost Structure</h2>
-            
+
             <div class="cost-breakdown-grid">
                 <div class="cost-card current">
                     <h4>Current Annual Costs</h4>
@@ -593,7 +488,7 @@
 
         <div class="section">
             <h2 class="section-title">Time & Cost Savings Breakdown</h2>
-            
+
             <div class="highlight-card warning">
                 <h3>Reclaim 1,040 Hours Annually</h3>
                 <p>Based on USL Championship benchmarks, your current setup requires approximately 1,040 hours annually of manual work that Athletiverse automates or handles more efficiently—saving an estimated $26,000 in labor costs at $25/hour while freeing your team to focus on strategy and revenue growth.</p>
@@ -660,7 +555,7 @@
 
         <div class="section">
             <h2 class="section-title">Creative Services Packages</h2>
-            
+
             <div class="highlight-card success">
                 <h3>Weekly Delivery Cadence</h3>
                 <p>All packages include weekly creative deliveries to maintain consistent content flow and momentum. Each tier includes ticket automation and social setup to streamline your operations from day one.</p>
@@ -731,7 +626,30 @@
 
         <div class="section">
             <h2 class="section-title">AVI Platform + Advisory Services</h2>
-            
+
+            <!-- NEW: UNIVERSAL INCLUSIONS FOR ALL AVI PACKAGES -->
+            <div class="avi-includes-card">
+                <h3>Included in Every AVI Package</h3>
+                <p style="color:#aab3c2; font-size:14px; line-height:1.65;">
+                    Every AVI plan includes the same high-leverage enablement layer—so your sponsors and leadership always see clear proof, projections, and decision-ready reporting.
+                </p>
+
+                <div class="avi-includes-grid">
+                    <div class="avi-include-item">
+                        <div class="avi-include-title">Priority Support</div>
+                        <div class="avi-include-desc">Fast response SLAs for urgent reporting, sponsor needs, and time-sensitive requests.</div>
+                    </div>
+                    <div class="avi-include-item">
+                        <div class="avi-include-title">Sponsor Campaign Projections</div>
+                        <div class="avi-include-desc">Pre-campaign EMV/ROI projection models for proposals, renewals, and upsells.</div>
+                    </div>
+                    <div class="avi-include-item">
+                        <div class="avi-include-title">Custom Leadership Reports</div>
+                        <div class="avi-include-desc">Executive-ready reporting tailored for ownership, leadership, and internal stakeholders.</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="avi-pricing-grid">
                 <div class="avi-tier-card recommended">
                     <div class="avi-tier-name">Starter</div>
@@ -745,6 +663,9 @@
                         <li>90-day data retention</li>
                         <li>Basic AI insights</li>
                         <li>Email support</li>
+                        <li><strong>Priority support (included)</strong></li>
+                        <li><strong>Sponsor campaign projections (included)</strong></li>
+                        <li><strong>Custom leadership reports (included)</strong></li>
                     </ul>
                 </div>
 
@@ -761,6 +682,9 @@
                         <li>180-day data retention</li>
                         <li>Advanced AI insights</li>
                         <li>Priority email support</li>
+                        <li><strong>Priority support (included)</strong></li>
+                        <li><strong>Sponsor campaign projections (included)</strong></li>
+                        <li><strong>Custom leadership reports (included)</strong></li>
                     </ul>
                 </div>
 
@@ -778,6 +702,8 @@
                         <li>1-year data retention</li>
                         <li>Full AI suite</li>
                         <li>Priority support</li>
+                        <li><strong>Sponsor campaign projections (included)</strong></li>
+                        <li><strong>Custom leadership reports (included)</strong></li>
                     </ul>
                 </div>
 
@@ -796,6 +722,9 @@
                         <li>Custom AI models</li>
                         <li>Dedicated CSM + SLA</li>
                         <li>Custom reporting</li>
+                        <li><strong>Priority support (included)</strong></li>
+                        <li><strong>Sponsor campaign projections (included)</strong></li>
+                        <li><strong>Custom leadership reports (included)</strong></li>
                     </ul>
                 </div>
             </div>
@@ -808,7 +737,7 @@
 
         <div class="section">
             <h2 class="section-title">Sponsorship Sales Enablement</h2>
-            
+
             <div class="highlight-card success">
                 <h3>Close the Boeing Front-of-Kit Deal ($400K+)</h3>
                 <p>AVI provides real-time front-of-kit valuation data, historical performance tracking, and competitor benchmarking—everything you need to build a data-backed case for premium partnerships like Boeing. No more guessing at sponsor value.</p>
@@ -845,7 +774,7 @@
 
         <div class="section">
             <h2 class="section-title">Implementation Timeline</h2>
-            
+
             <div class="time-breakdown-table">
                 <div class="table-row header">
                     <div>Phase</div>
@@ -886,7 +815,7 @@
 
         <div class="section">
             <h2 class="section-title">Total ROI Summary</h2>
-            
+
             <div class="cost-breakdown-grid">
                 <div class="cost-card">
                     <h4>Year 1 Financial Impact</h4>
