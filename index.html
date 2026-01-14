@@ -1,722 +1,651 @@
-body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-        background: #0a0a0a;
-        color: #ffffff;
-        line-height: 1.6;
-        padding: 40px 20px;
-    }
-
-    .container { max-width: 1200px; margin: 0 auto; }
-
-    .header {
-        text-align: center;
-        margin-bottom: 80px;
-        border-bottom: 2px solid #FFD700;
-        padding-bottom: 50px;
-        position: relative;
-    }
-
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #FFD700, transparent);
-    }
-
-    .logo-container { 
-        margin-bottom: 40px;
-        animation: fadeInDown 0.8s ease;
-    }
-    
-    .logo-container img { 
-        max-width: 200px; 
-        height: auto;
-        filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3));
-    }
-
-    .header h1 {
-        font-size: 48px;
-        font-weight: 700;
-        margin-bottom: 16px;
-        letter-spacing: -1.5px;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: fadeInUp 0.8s ease 0.2s both;
-    }
-
-    .header .subtitle { 
-        font-size: 20px; 
-        color: #aaa; 
-        font-weight: 400;
-        animation: fadeInUp 0.8s ease 0.4s both;
-    }
-    
-    .header .date { 
-        font-size: 14px; 
-        color: #666; 
-        margin-top: 12px;
-        animation: fadeInUp 0.8s ease 0.6s both;
-    }
-
-    @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .section { margin-bottom: 80px; }
-
-    .section-title {
-        font-size: 32px;
-        font-weight: 600;
-        margin-bottom: 40px;
-        color: #FFD700;
-        border-left: 5px solid #FFD700;
-        padding-left: 20px;
-        position: relative;
-    }
-
-    .section-title::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 5px;
-        background: linear-gradient(180deg, #FFD700, #FFA500);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    }
-
-    .highlight-card {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        border-radius: 16px;
-        padding: 40px;
-        margin-bottom: 50px;
-        color: #fff;
-        box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .highlight-card::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        animation: pulse 4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.5; }
-        50% { transform: scale(1.1); opacity: 0.8; }
-    }
-
-    .highlight-card.success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-    .highlight-card.warning { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
-    .highlight-card.blue { background: linear-gradient(135deg, #0046FF 0%, #0039CC 100%); }
-
-    .highlight-card h3 { 
-        font-size: 24px; 
-        margin-bottom: 16px; 
-        font-weight: 600;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .highlight-card p { 
-        font-size: 17px; 
-        line-height: 1.8; 
-        opacity: 0.95;
-        position: relative;
-        z-index: 1;
-    }
-
-    .cost-breakdown-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        margin: 40px 0;
-    }
-
-    .cost-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-        border: 2px solid #2a2a2a;
-        border-radius: 16px;
-        padding: 32px;
-        transition: all 0.3s ease;
-    }
-
-    .cost-card:hover {
-        border-color: #FFD700;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
-    }
-
-    .cost-card.current { 
-        border: 2px solid #ef4444;
-        box-shadow: 0 5px 20px rgba(239, 68, 68, 0.2);
-    }
-    
-    .cost-card.proposed { 
-        border: 2px solid #10b981;
-        box-shadow: 0 5px 20px rgba(16, 185, 129, 0.2);
-    }
-
-    .cost-card h4 {
-        font-size: 18px;
-        color: #FFD700;
-        margin-bottom: 24px;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-weight: 700;
-    }
-
-    .cost-line {
-        display: flex;
-        justify-content: space-between;
-        padding: 16px 0;
-        border-bottom: 1px solid #2a2a2a;
-        align-items: center;
-    }
-
-    .cost-line:last-child {
-        border-bottom: none;
-        margin-top: 16px;
-        padding-top: 20px;
-        border-top: 2px solid #FFD700;
-    }
-
-    .cost-label { 
-        font-size: 15px; 
-        color: #aaa;
-        flex: 1;
-    }
-    
-    .cost-value { 
-        font-size: 16px; 
-        font-weight: 600; 
-        color: #fff;
-    }
-    
-    .cost-value.negative { color: #ef4444; }
-    .cost-value.positive { color: #10b981; }
-
-    .savings-total {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        border-radius: 16px;
-        padding: 50px;
-        text-align: center;
-        margin: 40px 0;
-        box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
-    }
-
-    .savings-total h3 { 
-        font-size: 22px; 
-        margin-bottom: 20px; 
-        opacity: 0.95;
-        font-weight: 600;
-    }
-    
-    .savings-value { 
-        font-size: 64px; 
-        font-weight: 700; 
-        margin-bottom: 12px;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    
-    .savings-detail { 
-        font-size: 18px; 
-        opacity: 0.9;
-        line-height: 1.6;
-    }
-
-    .package-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        margin: 40px 0;
-    }
-
-    .package-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-        border: 2px solid #2a2a2a;
-        border-radius: 16px;
-        padding: 40px 28px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .package-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #FFD700, #FFA500);
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-    }
-
-    .package-card:hover {
-        border-color: #FFD700; 
-        transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
-    }
-
-    .package-card:hover::before {
-        transform: scaleX(1);
-    }
-
-    .package-card.recommended {
-        border: 2px solid #10b981;
-        background: linear-gradient(135deg, #1a1a1a 0%, #0a2a1a 100%);
-        box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
-    }
-
-    .package-badge {
-        display: inline-block;
-        padding: 6px 16px;
-        background: #10b981;
-        border-radius: 25px;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
-    }
-
-    .package-name { 
-        font-size: 28px; 
-        font-weight: 700; 
-        color: #FFD700; 
-        margin-bottom: 12px;
-    }
-    
-    .package-price { 
-        font-size: 42px; 
-        font-weight: 700; 
-        margin-bottom: 12px;
-    }
-    
-    .package-period { 
-        font-size: 14px; 
-        color: #666; 
-        margin-bottom: 32px;
-    }
-
-    .package-features { 
-        list-style: none; 
-        margin-bottom: 32px;
-    }
-
-    .package-features li {
-        padding: 12px 0;
-        font-size: 15px;
-        color: #aaa;
-        border-bottom: 1px solid #2a2a2a;
-        line-height: 1.6;
-    }
-
-    .package-features li:last-child { border-bottom: none; }
-
-    .package-features li::before {
-        content: "✓ ";
-        color: #10b981;
-        font-weight: 700;
-        margin-right: 12px;
-        font-size: 18px;
-    }
-
-    .avi-pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin: 40px 0;
-    }
-
-    .avi-tier-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-        border: 2px solid #2a2a2a;
-        border-radius: 12px;
-        padding: 28px 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .avi-tier-card:hover {
-        transform: translateY(-5px);
-        border-color: #FFD700;
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-    }
-
-    .avi-tier-card.recommended {
-        border: 2px solid #FFD700;
-        background: linear-gradient(135deg, #1a1a1a 0%, #2a2200 100%);
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
-    }
-
-    .avi-tier-name {
-        font-size: 20px;
-        font-weight: 700;
-        color: #FFD700;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .avi-tier-price { 
-        font-size: 36px; 
-        font-weight: 700; 
-        margin-bottom: 8px;
-    }
-    
-    .avi-tier-period { 
-        font-size: 12px; 
-        color: #666; 
-        margin-bottom: 20px;
-    }
-    
-    .avi-tier-savings { 
-        font-size: 13px; 
-        color: #10b981; 
-        margin-bottom: 20px; 
-        font-weight: 600;
-    }
-
-    .avi-tier-features { 
-        list-style: none; 
-        text-align: left;
-    }
-
-    .avi-tier-features li {
-        padding: 8px 0;
-        font-size: 13px;
-        color: #aaa;
-        border-bottom: 1px solid #2a2a2a;
-        line-height: 1.5;
-    }
-
-    .avi-tier-features li:last-child { border-bottom: none; }
-
-    /* Advisory Services Styling */
-    .advisory-section {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        border: 2px solid #334155;
-        border-radius: 16px;
-        padding: 50px 40px;
-        margin: 50px 0;
-    }
-
-    .advisory-header {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .advisory-header h3 {
-        font-size: 32px;
-        font-weight: 700;
-        color: #FFD700;
-        margin-bottom: 16px;
-    }
-
-    .advisory-header p {
-        font-size: 18px;
-        color: #94a3b8;
-        line-height: 1.8;
-    }
-
-    .advisory-options {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        margin-bottom: 40px;
-    }
-
-    .advisory-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 2px solid #334155;
-        border-radius: 12px;
-        padding: 35px;
-        transition: all 0.3s ease;
-    }
-
-    .advisory-card:hover {
-        border-color: #FFD700;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-    }
-
-    .advisory-card.standalone {
-        border-color: #8b5cf6;
-    }
-
-    .advisory-card.bundled {
-        border-color: #10b981;
-    }
-
-    .advisory-card h4 {
-        font-size: 22px;
-        font-weight: 700;
-        color: #FFD700;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .advisory-card .badge {
-        font-size: 11px;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .advisory-card.standalone .badge {
-        background: #8b5cf6;
-        color: white;
-    }
-
-    .advisory-card.bundled .badge {
-        background: #10b981;
-        color: white;
-    }
-
-    .advisory-price {
-        font-size: 48px;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 8px;
-    }
-
-    .advisory-period {
-        font-size: 16px;
-        color: #64748b;
-        margin-bottom: 30px;
-    }
-
-    .advisory-features {
-        list-style: none;
-        margin-bottom: 25px;
-    }
-
-    .advisory-features li {
-        padding: 12px 0;
-        font-size: 15px;
-        color: #cbd5e1;
-        border-bottom: 1px solid #334155;
-        line-height: 1.6;
-    }
-
-    .advisory-features li:last-child {
-        border-bottom: none;
-    }
-
-    .advisory-features li::before {
-        content: "→ ";
-        color: #FFD700;
-        font-weight: 700;
-        margin-right: 8px;
-    }
-
-    .advisory-value-prop {
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 8px;
-        padding: 20px;
-        margin-top: 20px;
-    }
-
-    .advisory-value-prop p {
-        font-size: 14px;
-        color: #10b981;
-        line-height: 1.7;
-        margin: 0;
-    }
-
-    .bundle-savings {
-        text-align: center;
-        padding: 30px;
-        background: rgba(255, 215, 0, 0.1);
-        border: 2px dashed #FFD700;
-        border-radius: 12px;
-        margin-top: 30px;
-    }
-
-    .bundle-savings h4 {
-        font-size: 24px;
-        color: #FFD700;
-        margin-bottom: 12px;
-        font-weight: 700;
-    }
-
-    .bundle-savings p {
-        font-size: 16px;
-        color: #cbd5e1;
-        line-height: 1.7;
-    }
-
-    .time-breakdown-table {
-        background: #1a1a1a;
-        border: 1px solid #2a2a2a;
-        border-radius: 16px;
-        overflow: hidden;
-        margin: 40px 0;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
-
-    .table-row {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        padding: 20px 32px;
-        border-bottom: 1px solid #2a2a2a;
-        align-items: center;
-        transition: background 0.2s ease;
-    }
-
-    .table-row.header {
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-        color: #000;
-        font-weight: 600;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .table-row:last-child { border-bottom: none; }
-    
-    .table-row:hover:not(.header) { 
-        background: #222;
-    }
-
-    .sponsorship-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        margin: 40px 0;
-    }
-
-    .sponsorship-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-        border: 1px solid #333;
-        border-radius: 16px;
-        padding: 35px;
-        transition: all 0.3s ease;
-    }
-
-    .sponsorship-card:hover {
-        border-color: #FFD700;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-    }
-
-    .sponsorship-card h4 { 
-        font-size: 22px; 
-        color: #FFD700; 
-        margin-bottom: 24px;
-        font-weight: 700;
-    }
-    
-    .sponsorship-card ul { list-style: none; }
-
-    .sponsorship-card li {
-        padding: 12px 0;
-        font-size: 16px;
-        color: #aaa;
-        border-bottom: 1px solid #2a2a2a;
-        line-height: 1.7;
-    }
-
-    .sponsorship-card li:last-child { border-bottom: none; }
-
-    .sponsorship-card li::before {
-        content: "→ ";
-        color: #10b981;
-        font-weight: 700;
-        margin-right: 12px;
-        font-size: 18px;
-    }
-
-    .value-prop-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        margin: 40px 0;
-    }
-
-    .value-prop-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-        border: 1px solid #333;
-        border-radius: 16px;
-        padding: 30px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .value-prop-card:hover { 
-        border-color: #FFD700; 
-        transform: translateY(-8px);
-        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.3);
-    }
-
-    .value-prop-icon { 
-        font-size: 42px; 
-        margin-bottom: 20px;
-        filter: drop-shadow(0 4px 10px rgba(255, 215, 0, 0.3));
-    }
-
-    .value-prop-title {
-        font-size: 18px;
-        font-weight: 700;
-        color: #FFD700;
-        margin-bottom: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .value-prop-description { 
-        font-size: 15px; 
-        color: #aaa; 
-        line-height: 1.7;
-    }
-
-    .footer {
-        text-align: center;
-        margin-top: 80px;
-        padding-top: 50px;
-        border-top: 2px solid #333;
-        color: #666;
-        font-size: 14px;
-    }
-
-    @media (max-width: 968px) {
-        .cost-breakdown-grid,
-        .sponsorship-grid,
-        .advisory-options { grid-template-columns: 1fr; }
-
-        .package-grid { grid-template-columns: 1fr; }
-
-        .avi-pricing-grid { grid-template-columns: repeat(2, 1fr); }
-
-        .table-row { grid-template-columns: 1fr; gap: 8px; }
-
-        .value-prop-grid { grid-template-columns: 1fr; }
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charleston Battery | Digital Revenue Operating System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+
+        .logo-container { margin-bottom: 30px; }
+        .logo-container img { max-width: 180px; height: auto; filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3)); }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle { 
+            font-size: 20px; 
+            color: #aaa; 
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .date { 
+            font-size: 14px; 
+            color: #666; 
+            margin-top: 12px;
+            font-weight: 300;
+        }
+
+        .section { margin-bottom: 80px; }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #FFD700;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 3px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+        }
+
+        .highlight-card.success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .highlight-card.warning { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .highlight-card.blue { background: linear-gradient(135deg, #0046FF 0%, #0039CC 100%); }
+
+        .highlight-card h3 { 
+            font-size: 24px; 
+            margin-bottom: 16px; 
+            font-weight: 600;
+        }
+        
+        .highlight-card p { 
+            font-size: 17px; 
+            line-height: 1.8; 
+            opacity: 0.95;
+        }
+
+        .cost-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .cost-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 2px solid #2a2a2a;
+            border-radius: 20px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cost-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .cost-card.current {
+            border-color: #ef4444;
+        }
+
+        .cost-card.current::before {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
+        .cost-card.proposed {
+            border-color: #10b981;
+        }
+
+        .cost-card.proposed::before {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+
+        .cost-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .cost-card h4 {
+            font-size: 18px;
+            color: #FFD700;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .cost-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.5);
+        }
+
+        .cost-line:last-child {
+            border-bottom: none;
+            margin-top: 20px;
+            padding-top: 24px;
+            border-top: 2px solid #FFD700;
+        }
+
+        .cost-label { 
+            font-size: 15px; 
+            color: #bbb;
+            font-weight: 400;
+        }
+        
+        .cost-value { 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: #fff;
+        }
+        
+        .cost-value.negative { color: #ef4444; }
+        .cost-value.positive { color: #10b981; }
+
+        .savings-total {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .savings-total::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .savings-total h3 { 
+            font-size: 22px; 
+            margin-bottom: 20px; 
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .savings-value { 
+            font-size: 64px; 
+            font-weight: 700; 
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .savings-detail { 
+            font-size: 18px; 
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .advisory-pricing-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advisory-pricing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+        }
+
+        .advisory-pricing-section h3 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .advisory-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .advisory-option {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .advisory-option:hover {
+            transform: translateY(-4px);
+            border-color: #FFD700;
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .advisory-option.recommended {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border: 2px solid #10b981;
+        }
+
+        .advisory-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .advisory-price {
+            font-size: 42px;
+            font-weight: 700;
+            color: #FFD700;
+            margin: 16px 0;
+        }
+
+        .advisory-period {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .advisory-details {
+            text-align: left;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .advisory-details li {
+            padding: 8px 0;
+            color: #aaa;
+            font-size: 14px;
+            list-style: none;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .advisory-details li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .roi-showcase {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roi-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+        }
+
+        .roi-showcase h3 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+
+        .roi-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .roi-metric {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px 20px;
+        }
+
+        .roi-metric-label {
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .roi-metric-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+
+        .roi-metric-detail {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .cost-breakdown-grid,
+            .advisory-options,
+            .roi-metrics { 
+                grid-template-columns: 1fr; 
+            }
+
+            .header h1 { font-size: 36px; }
+            .section-title { font-size: 28px; }
+            .savings-value { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://www.charlestonbattery.com/wp-content/uploads/sites/13/2022/03/Charleston-Battery-Crest.png" alt="Charleston Battery Logo">
+            </div>
+            <h1>Digital Revenue Operating System</h1>
+            <div class="subtitle">Transform Marketing from Cost Center to Revenue Engine</div>
+            <div class="date">Prepared for: Julian | January 2026</div>
+        </div>
+
+        <div class="highlight-card blue">
+            <h3>🚀 The Athletiverse Difference: Complete Growth Infrastructure</h3>
+            <p>Athletiverse orchestrates content creation, sponsorship sales, strategic advisory, and analytics into a single operating system—empowering your marketing to do more for less. Unlike traditional agencies or point solutions, we don't just deliver services—we integrate them. Creative execution generates sponsor-optimized content. Real-time analytics prove partner ROI instantly. Strategic advisory turns that data into revenue growth. Together, we'll power Charleston Battery's marketing team to maximize output, prove value to sponsors, and close bigger deals—all while cutting costs by 41%.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Current vs Proposed Investment Structure</h2>
+
+            <div class="cost-breakdown-grid">
+                <div class="cost-card current">
+                    <h4>Current Annual Costs</h4>
+                    <div class="cost-line">
+                        <span class="cost-label">2-3 Marketing Staff</span>
+                        <span class="cost-value negative">$45,000</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label">Sprout Social</span>
+                        <span class="cost-value negative">$3,600</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label">Other Tools/Software</span>
+                        <span class="cost-value negative">$2,400</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label">Opportunity Cost (Lost Deals)</span>
+                        <span class="cost-value negative">$50,000+</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label"><strong>Total Annual Cost</strong></span>
+                        <span class="cost-value negative"><strong>~$101,000</strong></span>
+                    </div>
+                </div>
+
+                <div class="cost-card proposed">
+                    <h4>Proposed Annual Investment</h4>
+                    <div class="cost-line">
+                        <span class="cost-label">AVI Platform (Starter)</span>
+                        <span class="cost-value">$4,580</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label">Creative Services (Growth Package)</span>
+                        <span class="cost-value">$42,900</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label">Strategic Advisory (Bundled Rate)</span>
+                        <span class="cost-value">$12,000</span>
+                    </div>
+                    <div class="cost-line">
+                        <span class="cost-label"><strong>Total Annual Investment</strong></span>
+                        <span class="cost-value positive"><strong>$59,480</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="savings-total">
+                <h3>Net Annual Savings + Strategic Advantage</h3>
+                <div class="savings-value">$41,520</div>
+                <div class="savings-detail">41% cost reduction with improved output quality + sponsor sales infrastructure</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="advisory-pricing-section">
+                <h3>📊 Strategic Advisory Services Pricing</h3>
+                <p style="text-align: center; color: #aaa; margin-bottom: 30px;">Choose the advisory model that fits your needs—bundled or standalone</p>
+
+                <div class="advisory-options">
+                    <div class="advisory-option recommended">
+                        <div class="advisory-badge">RECOMMENDED</div>
+                        <div class="advisory-price">$1,000</div>
+                        <div class="advisory-period">per month</div>
+                        <p style="color: #10b981; font-weight: 600; margin-bottom: 20px;">Bundled with AVI Package</p>
+                        <ul class="advisory-details">
+                            <li>10 hours per month of strategic guidance</li>
+                            <li>Quarterly business reviews</li>
+                            <li>Sponsorship proposal support</li>
+                            <li>Content strategy optimization</li>
+                            <li>Performance analysis & recommendations</li>
+                            <li>Direct Slack/email access</li>
+                        </ul>
+                        <p style="color: #10b981; font-size: 12px; margin-top: 20px; font-weight: 600;">Save $15,000/year vs standalone</p>
+                    </div>
+
+                    <div class="advisory-option">
+                        <div class="advisory-price">$2,250</div>
+                        <div class="advisory-period">per month</div>
+                        <p style="color: #aaa; font-weight: 600; margin-bottom: 20px;">Standalone Advisory</p>
+                        <ul class="advisory-details">
+                            <li>10 hours per month of strategic guidance</li>
+                            <li>Quarterly business reviews</li>
+                            <li>Sponsorship proposal support</li>
+                            <li>Content strategy optimization</li>
+                            <li>Performance analysis & recommendations</li>
+                            <li>Direct Slack/email access</li>
+                        </ul>
+                        <p style="color: #666; font-size: 12px; margin-top: 20px;">Available without other services</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                    <p style="text-align: center; color: #10b981; font-size: 15px; line-height: 1.7;">
+                        <strong>💡 Our Recommendation:</strong> Bundle advisory with any AVI package to save $15,000 annually while getting integrated support that drives better results across content, analytics, and sponsorship sales.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="roi-showcase">
+                <h3>💰 Total ROI Summary</h3>
+                <p style="color: #aaa; font-size: 16px; margin-bottom: 30px;">Year 1 financial impact with bundled advisory services</p>
+
+                <div class="roi-metrics">
+                    <div class="roi-metric">
+                        <div class="roi-metric-label">Total Value Created</div>
+                        <div class="roi-metric-value">$127K</div>
+                        <div class="roi-metric-detail">Efficiency + Savings + New Revenue</div>
+                    </div>
+                    
+                    <div class="roi-metric">
+                        <div class="roi-metric-label">Total Investment</div>
+                        <div class="roi-metric-value" style="color: #FFD700;">$59.5K</div>
+                        <div class="roi-metric-detail">All-inclusive annual cost</div>
+                    </div>
+                    
+                    <div class="roi-metric">
+                        <div class="roi-metric-label">Net ROI</div>
+                        <div class="roi-metric-value">213%</div>
+                        <div class="roi-metric-detail">2.13X return on investment</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 50px; padding: 30px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                    <h4 style="color: #10b981; font-size: 20px; margin-bottom: 20px;">Year 1 Financial Breakdown</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: left;">
+                        <div>
+                            <div style="color: #aaa; font-size: 14px; margin-bottom: 8px;">Operational Efficiency</div>
+                            <div style="color: #10b981; font-size: 24px; font-weight: 700;">+$45,000</div>
+                        </div>
+                        <div>
+                            <div style="color: #aaa; font-size: 14px; margin-bottom: 8px;">Eliminated Tool Costs</div>
+                            <div style="color: #10b981; font-size: 24px; font-weight: 700;">+$6,000</div>
+                        </div>
+                        <div>
+                            <div style="color: #aaa; font-size: 14px; margin-bottom: 8px;">Time Savings Value</div>
+                            <div style="color: #10b981; font-size: 24px; font-weight: 700;">+$26,000</div>
+                        </div>
+                        <div>
+                            <div style="color: #aaa; font-size: 14px; margin-bottom: 8px;">New Sponsor Revenue</div>
+                            <div style="color: #10b981; font-size: 24px; font-weight: 700;">+$50,000</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid rgba(16, 185, 129, 0.3);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 20px; color: #fff; font-weight: 600;">Net Year 1 Benefit</span>
+                            <span style="font-size: 32px; color: #10b981; font-weight: 700;">+$67,520</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Strategic Improvements</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div style="background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%); border: 1px solid #333; border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">⚡</div>
+                    <div style="color: #FFD700; font-size: 18px; font-weight: 600; margin-bottom: 8px;">Operational Efficiency</div>
+                    <div style="color: #10b981; font-size: 28px; font-weight: 700;">3-4X</div>
+                    <div style="color: #aaa; font-size: 14px; margin-top: 8px;">Improvement</div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%); border: 1px solid #333; border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">📈</div>
+                    <div style="color: #FFD700; font-size: 18px; font-weight: 600; margin-bottom: 8px;">Content Quality</div>
+                    <div style="color: #10b981; font-size: 28px; font-weight: 700;">+40%</div>
+                    <div style="color: #aaa; font-size: 14px; margin-top: 8px;">Improvement</div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%); border: 1px solid #333; border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">🎯</div>
+                    <div style="color: #FFD700; font-size: 18px; font-weight: 600; margin-bottom: 8px;">Sponsor Sales Cycle</div>
+                    <div style="color: #10b981; font-size: 28px; font-weight: 700;">-30%</div>
+                    <div style="color: #aaa; font-size: 14px; margin-top: 8px;">Shorter</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 24px; font-weight: 800; color: #FFD700; margin-bottom: 8px;">ATHLETIVERSE</div>
+            <div>Digital Revenue Operating System</div>
+            <div style="margin-top: 8px;">Prepared for Charleston Battery | January 2026</div>
+        </div>
+    </div>
+</body>
+</html>
