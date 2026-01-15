@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -310,6 +310,112 @@
 
         .value-prop-description { font-size: 14px; color: #aaa; line-height: 1.6; }
 
+        /* NEW: Advisory Services Section */
+        .advisory-pricing-section {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+        }
+
+        .advisory-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .advisory-price-card {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .advisory-price-card:hover {
+            border-color: #FFD700;
+            transform: translateY(-4px);
+        }
+
+        .advisory-price-card.bundled {
+            border: 2px solid #10b981;
+            background: linear-gradient(135deg, #0a2a1a 0%, #1a1a1a 100%);
+        }
+
+        .advisory-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #10b981;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .advisory-badge.standalone {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .advisory-price-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 12px;
+        }
+
+        .advisory-price-value {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .advisory-price-period {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .advisory-features-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .advisory-features-list li {
+            padding: 10px 0;
+            font-size: 14px;
+            color: #aaa;
+            border-bottom: 1px solid #2a2a2a;
+            line-height: 1.6;
+        }
+
+        .advisory-features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .advisory-features-list li::before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .savings-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #10b981;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+
         /* NEW: AVI "Included in every plan" banner */
         .avi-includes-card {
             background: linear-gradient(135deg, #0f172a 0%, #0b1220 100%);
@@ -365,7 +471,8 @@
 
         @media (max-width: 968px) {
             .cost-breakdown-grid,
-            .sponsorship-grid { grid-template-columns: 1fr; }
+            .sponsorship-grid,
+            .advisory-pricing-grid { grid-template-columns: 1fr; }
 
             .package-grid { grid-template-columns: 1fr; }
 
@@ -385,14 +492,14 @@
             <div class="logo-container">
                 <img src="https://www.charlestonbattery.com/wp-content/uploads/sites/13/2022/03/Charleston-Battery-Crest.png" alt="Charleston Battery Logo">
             </div>
-            <h1>Digital Revenue Operating System</h1>
+            <h1>Athletiverse OS</h1>
             <div class="subtitle">Transform Marketing from Cost Center to Revenue Engine</div>
             <div class="date">Prepared for: Julian | January 2026</div>
         </div>
 
         <div class="highlight-card blue">
             <h3>The Athletiverse Difference: All-in-One Infrastructure</h3>
-            <p>Athletiverse orchestrates content creation, sponsorship sales, and analytics into a single operating system—empowering your marketing to do more for less. Unlike traditional agencies or point solutions, we don't just deliver services—we integrate them. Creative execution generates sponsor-optimized content. Real-time analytics prove partner ROI instantly. Strategic advisory turns that data into revenue growth. Together, we'll power Charleston Battery's marketing team to maximize output, prove value to sponsors, and close bigger deals—all while cutting costs by 51%.</p>
+            <p>Athletiverse is the digital operating system enabling teams to orchestrates content creation, sponsorship sales, and analytics into a single operating system—empowering your marketing to do more for less. Unlike traditional agencies or point solutions, we don't just deliver services—we integrate them. Creative execution generates sponsor-optimized content. Real-time analytics prove partner ROI instantly. Strategic advisory turns that data into revenue growth. Together, we'll power Charleston Battery's marketing team to maximize output, prove value to sponsors, and close bigger deals—all while cutting costs by 51%.</p>
         </div>
 
         <div class="section">
@@ -469,20 +576,20 @@
                         <span class="cost-value">$42,900</span>
                     </div>
                     <div class="cost-line">
-                        <span class="cost-label">Strategic Advisory (Quarterly)</span>
-                        <span class="cost-value">$2,400</span>
+                        <span class="cost-label">Strategic Advisory (Bundled)</span>
+                        <span class="cost-value">$12,000</span>
                     </div>
                     <div class="cost-line">
                         <span class="cost-label"><strong>Total Annual Investment</strong></span>
-                        <span class="cost-value positive"><strong>$49,880</strong></span>
+                        <span class="cost-value positive"><strong>$59,480</strong></span>
                     </div>
                 </div>
             </div>
 
             <div class="savings-total">
                 <h3>Net Annual Savings + Strategic Advantage</h3>
-                <div class="savings-value">$51,120</div>
-                <div class="savings-detail">51% cost reduction with improved output quality + sponsor sales infrastructure</div>
+                <div class="savings-value">$41,520</div>
+                <div class="savings-detail">41% cost reduction with improved output quality + sponsor sales infrastructure</div>
             </div>
         </div>
 
@@ -729,9 +836,59 @@
                 </div>
             </div>
 
-            <div class="highlight-card">
-                <h3>Strategic Advisory Included</h3>
-                <p>Every AVI package includes quarterly strategy sessions to review performance, identify sponsorship opportunities, and optimize content strategy for maximum EMV and ticket conversions. We're not just a vendor—we're a partner invested in your success.</p>
+            <!-- NEW: ADVISORY SERVICES PRICING SECTION -->
+            <div class="advisory-pricing-section">
+                <h2 style="font-size: 24px; font-weight: 700; color: #FFD700; margin-bottom: 12px;">Strategic Advisory Services</h2>
+                <p style="color: #aaa; font-size: 15px; line-height: 1.7; margin-bottom: 30px;">
+                    Our advisory team doesn't just analyze data—we translate insights into actionable revenue strategies. From sponsorship valuation to content optimization, we serve as an extension of your leadership team, helping you make data-backed decisions that compound over time.
+                </p>
+
+                <div class="advisory-pricing-grid">
+                    <div class="advisory-price-card">
+                        <div class="advisory-badge standalone">STANDALONE</div>
+                        <h3>Advisory Only</h3>
+                        <div class="advisory-price-value">$2,250</div>
+                        <div class="advisory-price-period">per month</div>
+                        
+                        <ul class="advisory-features-list">
+                            <li>Monthly strategic planning sessions (2 hours)</li>
+                            <li>Quarterly performance reviews with leadership</li>
+                            <li>Competitive positioning analysis</li>
+                            <li>Sponsorship valuation & sales enablement</li>
+                            <li>Content strategy optimization roadmaps</li>
+                            <li>Revenue attribution modeling</li>
+                            <li>Custom reporting & dashboard setup</li>
+                            <li>Email & Slack support</li>
+                        </ul>
+                    </div>
+
+                    <div class="advisory-price-card bundled">
+                        <div class="advisory-badge">BUNDLED RATE</div>
+                        <h3>Advisory + AVI Platform</h3>
+                        <div class="advisory-price-value">
+                            $1,000
+                            <span class="savings-badge">Save $1,250/mo</span>
+                        </div>
+                        <div class="advisory-price-period">per month (when bundled with any AVI tier)</div>
+                        
+                        <ul class="advisory-features-list">
+                            <li>Monthly strategic planning sessions (2 hours)</li>
+                            <li>Quarterly performance reviews with leadership</li>
+                            <li>Competitive positioning analysis</li>
+                            <li>Sponsorship valuation & sales enablement</li>
+                            <li>Content strategy optimization roadmaps</li>
+                            <li>Revenue attribution modeling</li>
+                            <li>Custom reporting & dashboard setup</li>
+                            <li>Priority email & Slack support</li>
+                            <li><strong>Integrated AVI platform training & optimization</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-card" style="margin-top: 30px;">
+                    <h3>Why Advisory Matters</h3>
+                    <p>Data without direction is just noise. Our advisory service bridges the gap between analytics and action—helping you identify the $400K Boeing opportunities, structure performance-based sponsorship deals, and build repeatable systems that turn social content into predictable revenue. This isn't consulting—it's a strategic partnership designed to compound your growth month over month.</p>
+                </div>
             </div>
         </div>
 
@@ -837,11 +994,11 @@
                     </div>
                     <div class="cost-line">
                         <span class="cost-label">Total Athletiverse Investment</span>
-                        <span class="cost-value negative">-$49,880</span>
+                        <span class="cost-value negative">-$59,480</span>
                     </div>
                     <div class="cost-line">
                         <span class="cost-label"><strong>Net Year 1 Benefit</strong></span>
-                        <span class="cost-value positive"><strong>+$77,120</strong></span>
+                        <span class="cost-value positive"><strong>+$67,520</strong></span>
                     </div>
                 </div>
 
@@ -876,8 +1033,8 @@
 
             <div class="savings-total">
                 <h3>Bottom Line: Strategic Operating System</h3>
-                <div class="savings-value">254% ROI</div>
-                <div class="savings-detail">For every $1 invested with Athletiverse, you gain $2.54 in value through efficiency gains, improved output, and new revenue infrastructure</div>
+                <div class="savings-value">213% ROI</div>
+                <div class="savings-detail">For every $1 invested with Athletiverse, you gain $2.13 in value through efficiency gains, improved output, and new revenue infrastructure</div>
             </div>
         </div>
 
