@@ -172,8 +172,8 @@
         }
 
         .cost-column.current { border-top: 4px solid var(--danger); }
-        .cost-column.proposed { 
-            border-top: 4px solid var(--success); 
+        .cost-column.proposed {
+            border-top: 4px solid var(--success);
             background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--bg-card) 100%);
             transform: scale(1.02);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
@@ -197,7 +197,7 @@
         }
 
         .cost-row:last-of-type { border-bottom: none; }
-        
+
         .cost-row .label { color: var(--text-muted); }
         .cost-row .amount { font-weight: 600; font-family: monospace; font-size: 16px; }
         .amount.red { color: var(--danger); }
@@ -249,7 +249,7 @@
         }
 
         .t-row:last-child { border-bottom: none; }
-        
+
         .t-head {
             background: var(--battery-gold);
             font-size: 12px;
@@ -326,7 +326,7 @@
             font-weight: bold;
         }
 
-        /* --- Advisory Services (Restored) --- */
+        /* --- Advisory Services --- */
         .advisory-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -377,6 +377,43 @@
             vertical-align: middle;
         }
 
+        /* --- ROI --- */
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .roi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px;
+        }
+        .roi-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .roi-value {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: monospace;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .roi-sub {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .roi-card.good { border-color: rgba(16,185,129,0.35); background: linear-gradient(180deg, rgba(16,185,129,0.06) 0%, var(--bg-card) 100%); }
+        .roi-card.gold { border-color: rgba(255,198,41,0.35); background: linear-gradient(180deg, rgba(255,198,41,0.06) 0%, var(--bg-card) 100%); }
+
         /* --- AVI Grid --- */
         .avi-grid {
             display: grid;
@@ -392,7 +429,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .avi-card.featured { border: 2px solid var(--battery-gold); }
 
         .avi-head { margin-bottom: 20px; text-align: center; }
@@ -424,7 +461,7 @@
             margin: 30px 0;
             border-radius: 0 12px 12px 0;
         }
-        
+
         .inclusion-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -446,7 +483,7 @@
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
-            .value-grid, .comparison-container, .pricing-grid, .avi-grid, .advisory-container, .inclusion-grid {
+            .value-grid, .comparison-container, .pricing-grid, .avi-grid, .advisory-container, .inclusion-grid, .roi-grid {
                 grid-template-columns: 1fr;
             }
             .t-row { grid-template-columns: 1fr; gap: 8px; }
@@ -458,7 +495,7 @@
 <body>
 
 <div class="container">
-    
+
     <div class="header">
         <div class="logo-container">
             <img src="https://www.charlestonbattery.com/wp-content/uploads/sites/13/2022/03/Charleston-Battery-Crest.png" alt="Charleston Battery">
@@ -549,7 +586,7 @@
                     <span class="amount">$42,900</span>
                 </div>
                 <div class="cost-row">
-                    <span class="label">Strategic Advisory (Bundled)</span>
+                    <span class="label">Strategic Advisory (Bundled w/ AVI)</span>
                     <span class="amount">$12,000</span>
                 </div>
                 <div class="cost-total">
@@ -566,11 +603,60 @@
         </div>
     </div>
 
+    <!-- ROI Snapshot for: Advisory + AVI Starter + Creative Growth -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">ROI Snapshot</h2>
+            <span class="section-tag">Advisory + AVI Starter + Growth Creative</span>
+        </div>
+
+        <div class="hero-card" style="border-color: rgba(255,198,41,0.35);">
+            <h3 style="color: var(--battery-gold);">What this bundle buys you (in plain terms)</h3>
+            <p>
+                You’re not adding a “consulting layer.” You’re pairing a recurring advisory cadence to AVI’s reporting + projections,
+                so strategy, sponsor proof, and execution stay in one loop. This is the package that makes reporting usable in sales,
+                and makes performance data turn into weekly creative + commercial decisions.
+            </p>
+
+            <div class="roi-grid">
+                <div class="roi-card gold">
+                    <div class="roi-label">Annual investment</div>
+                    <div class="roi-value">$59,480</div>
+                    <div class="roi-sub">AVI Starter ($4,580/yr) + Growth Creative ($42,900/yr) + Advisory w/ AVI ($12,000/yr)</div>
+                </div>
+
+                <div class="roi-card good">
+                    <div class="roi-label">Net savings vs current</div>
+                    <div class="roi-value">$41,520</div>
+                    <div class="roi-sub">Baseline ~ $101,000/yr → Proposed $59,480/yr</div>
+                </div>
+
+                <div class="roi-card">
+                    <div class="roi-label">Effective ROI</div>
+                    <div class="roi-value">~70%</div>
+                    <div class="roi-sub">Computed as Savings ÷ Investment (41,520 ÷ 59,480)</div>
+                </div>
+
+                <div class="roi-card">
+                    <div class="roi-label">Monthly delta</div>
+                    <div class="roi-value">+$3,460</div>
+                    <div class="roi-sub">Average monthly cost reduction vs baseline (41,520 ÷ 12)</div>
+                </div>
+            </div>
+
+            <div style="margin-top:18px; color: var(--text-muted); font-size: 13px;">
+                Note: The time-savings table below (1,040 hours / $26,000) is shown as operational capacity reclaimed.
+                Depending on your staffing mix, that “value” can be realized as reduced contractor spend, fewer outsourced tasks,
+                or repurposed time into sponsor sales + ticketing campaigns.
+            </div>
+        </div>
+    </div>
+
     <div class="section">
         <div class="section-header">
             <h2 class="section-title">Time & Cost Savings Breakdown</h2>
         </div>
-        
+
         <div class="hero-card" style="border-color: #f59e0b;">
              <h3 style="color:#f59e0b">Reclaim 1,040 Hours Annually</h3>
              <p>Based on USL Championship benchmarks, your current setup requires approximately 1,040 hours annually of manual work that Athletiverse automates or handles more efficiently—saving an estimated $26,000 in labor costs at $25/hour while freeing your team to focus on strategy and revenue growth.</p>
@@ -632,7 +718,7 @@
         <div class="section-header">
             <h2 class="section-title">Creative Services Packages</h2>
         </div>
-        
+
         <p style="margin-bottom:20px; color:var(--text-muted)">All packages include weekly creative deliveries to maintain consistent content flow and momentum. Each tier includes ticket automation and social setup to streamline your operations from day one.</p>
 
         <div class="pricing-grid">
@@ -688,7 +774,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div style="margin-top:30px;" class="hero-card">
             <h4 style="color:#fff; margin-bottom:10px; font-size:18px;">What's Included in Every Package</h4>
             <p><strong>Ticket Automation & Social Setup:</strong> We'll configure your ticketing workflows, social media scheduling systems, and automation tools to eliminate manual work from day one. This includes CRM integration, automated posting schedules, and ticket sales funnel setup—everything needed to turn your marketing infrastructure into a revenue-generating machine.</p>
@@ -698,7 +784,7 @@
     <div class="section">
         <div class="section-header">
             <h2 class="section-title">Strategic Advisory Services</h2>
-            <span class="section-tag">Sales Enablement</span>
+            <span class="section-tag">Linked with AVI</span>
         </div>
 
         <div class="advisory-container">
@@ -707,7 +793,7 @@
                 <h3 class="advisory-title">Strategic Advisory</h3>
                 <div class="advisory-price">$2,500</div>
                 <div class="advisory-period">per month</div>
-                
+
                 <ul class="feature-list">
                     <li>Weekly sales enablement calls</li>
                     <li>Sponsorship asset valuation & packaging</li>
@@ -718,17 +804,17 @@
             </div>
 
             <div class="advisory-card bundled">
-                <span class="advisory-badge bundle">Bundled with Creative</span>
-                <h3 class="advisory-title" style="color:var(--battery-gold)">Bundled Advisory</h3>
+                <span class="advisory-badge bundle">Bundled with AVI</span>
+                <h3 class="advisory-title" style="color:var(--battery-gold)">AVI + Advisory Bundle</h3>
                 <div class="advisory-price">$1,000 <span class="savings-chip">Save $1,500/mo</span></div>
-                <div class="advisory-period">per month</div>
-                
+                <div class="advisory-period">per month (when coupled with any AVI plan)</div>
+
                 <ul class="feature-list">
                     <li><strong>Everything in Standalone +</strong></li>
-                    <li>Integrated content strategy & sales alignment</li>
-                    <li>Real-time campaign adjustments based on data</li>
-                    <li>Priority scheduling for strategy sessions</li>
-                    <li>Unified reporting (Creative + Sales + Data)</li>
+                    <li>Advisory sessions anchored to AVI dashboards + sponsor reporting</li>
+                    <li>Monthly sponsor-ready report package (proof + narrative)</li>
+                    <li>Quarterly projection refresh (packages, pricing, inventory)</li>
+                    <li>Unified operating cadence: forecast → ship → measure → iterate</li>
                 </ul>
             </div>
         </div>
@@ -742,7 +828,7 @@
         <div class="inclusion-card">
             <h3 style="color:var(--text-main); margin-bottom:8px;">Included in Every AVI Package</h3>
             <p style="color:var(--text-muted); font-size:14px; margin-bottom:15px;">Every AVI plan includes the same high-leverage enablement layer—so your sponsors and leadership always see clear proof, projections, and decision-ready reporting.</p>
-            
+
             <div class="inclusion-grid">
                 <div class="inc-item">
                     <h4>Priority Support</h4>
