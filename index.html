@@ -3,37 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charleston Battery | Digital Revenue Operating System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>FC Cincinnati | Commercial Arbitrage & Valuation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --battery-gold: #FFC629;
-            --battery-gold-dim: #b38b1d;
-            --bg-dark: #09090b;
-            --bg-card: #121214;
-            --bg-card-hover: #1c1c1f;
+            --fcc-blue: #263B80;
+            --fcc-blue-dark: #15224a;
+            --fcc-orange: #F05323;
+            --fcc-white: #ffffff;
+            --bg-body: #0f172a;
+            --bg-card: rgba(38, 59, 128, 0.15);
+            --border-color: rgba(240, 83, 35, 0.3);
             --text-main: #ffffff;
-            --text-muted: #a1a1aa;
+            --text-muted: #94a3b8;
             --success: #10b981;
-            --danger: #ef4444;
-            --accent-blue: #3b82f6;
-            --border-color: rgba(255, 255, 255, 0.08);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 50% 0%, rgba(255, 198, 41, 0.08), transparent 40%);
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg-body);
+            background-image: radial-gradient(circle at 50% 0%, rgba(38, 59, 128, 0.6), transparent 50%),
+                              radial-gradient(circle at 90% 10%, rgba(240, 83, 35, 0.15), transparent 40%);
             color: var(--text-main);
             line-height: 1.6;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
-
         .container { max-width: 1200px; margin: 0 auto; padding-bottom: 80px; }
-
-        /* --- NEW HEADER STYLE (Side-by-Side) --- */
         .main-header {
             display: flex;
             justify-content: space-between;
@@ -42,899 +37,471 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 60px;
         }
-
-        .logo-group {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .header-logo {
-            height: 65px;
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .partner-logo {
+            height: 90px;
             width: auto;
-            /* Invert logo to white if needed, or keep original colors */
-            /* filter: brightness(0) invert(1); */ 
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(240, 83, 35, 0.4));
         }
-
-        .divider { width: 1px; height: 45px; background: var(--border-color); }
-        
-        .brand-text { 
-            font-size: 1.2rem; 
-            font-weight: 800; 
-            letter-spacing: -0.5px; 
+        .header-divider { width: 1px; height: 45px; background: rgba(255,255,255,0.1); }
+        .brand-name { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+        .header-right { text-align: right; }
+        .doc-badge {
+            display: inline-block;
+            background: var(--fcc-orange);
             color: #fff;
-        }
-
-        .playbook-badge {
-            background: var(--battery-gold);
-            color: #000;
             padding: 6px 14px;
             border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 5px;
         }
-
-        .meta-date {
-            font-size: 0.8rem; 
-            text-align: right; 
-            margin-top: 5px; 
-            color: var(--text-muted);
-        }
-
-        /* --- Global Section Styles --- */
-        .section { margin-bottom: 100px; }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-right: 20px;
-        }
-
-        .section-tag {
-            background: var(--battery-gold);
-            color: #000;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-
-        /* --- Hero Cards --- */
-        .hero-card {
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.4) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 16px;
+        .meta-date { font-size: 0.85rem; color: var(--text-muted); }
+        .os-banner {
+            background: linear-gradient(135deg, rgba(38, 59, 128, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid var(--fcc-blue);
+            border-left: 6px solid var(--fcc-orange);
+            border-radius: 12px;
             padding: 40px;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
-
-        .hero-card.success {
-             background: linear-gradient(180deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 78, 59, 0.1) 100%);
-             border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--success));
-        }
-
-        .hero-card h3 { font-size: 24px; margin-bottom: 16px; color: var(--text-main); }
-        .hero-card p { color: var(--text-muted); font-size: 17px; max-width: 900px; }
-
-        /* --- Value Prop Grid --- */
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .value-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            border-radius: 12px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--battery-gold);
-        }
-
-        .value-icon { font-size: 32px; margin-bottom: 16px; }
-        .value-title { color: var(--text-main); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; color: var(--battery-gold); }
-        .value-desc { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-
-        /* --- Cost Comparison --- */
-        .comparison-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        .os-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; line-height: 1.1; }
+        .os-text { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; margin-bottom: 30px; }
+        .client-pills { display: flex; gap: 15px; flex-wrap: wrap; }
+        .client-pill {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #fff;
+            display: flex;
             align-items: center;
+            gap: 8px;
         }
-
-        .cost-column {
-            background: var(--bg-card);
+        .client-pill img { height: 20px; width: auto; object-fit: contain; }
+        .speed-card {
+            background: linear-gradient(90deg, rgba(240, 83, 35, 0.15), rgba(38, 59, 128, 0.3));
+            border: 1px solid var(--fcc-orange);
             border-radius: 16px;
-            padding: 30px;
-            border: 1px solid var(--border-color);
-        }
-
-        .cost-column.current { border-top: 4px solid var(--danger); }
-        .cost-column.proposed {
-            border-top: 4px solid var(--success);
-            background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--bg-card) 100%);
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .cost-header {
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
-
-        .cost-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 15px;
-        }
-
-        .cost-row:last-of-type { border-bottom: none; }
-
-        .cost-row .label { color: var(--text-muted); }
-        .cost-row .amount { font-weight: 600; font-family: monospace; font-size: 16px; }
-        .amount.red { color: var(--danger); }
-        .amount.green { color: var(--success); }
-
-        .cost-total {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cost-total .amount { font-size: 28px; font-weight: 800; }
-
-        .savings-banner {
-            margin-top: 40px;
-            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 50%, rgba(16, 185, 129, 0.1) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .savings-number {
-            font-size: 56px;
-            font-weight: 800;
-            color: var(--success);
-            text-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        /* --- Time Breakdown Table --- */
-        .table-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
             overflow: hidden;
         }
-
-        .t-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
-            align-items: center;
-        }
-
-        .t-row:last-child { border-bottom: none; }
-
-        .t-head {
-            background: var(--battery-gold);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #000;
-            font-weight: 700;
-        }
-
-        .t-row:not(.t-head):hover { background: var(--bg-card-hover); }
-        .col-highlight { color: var(--battery-gold); font-weight: 600; }
-
-        /* --- Pricing Cards (Creative) --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            align-items: start;
-        }
-
-        .p-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .p-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255,255,255,0.2);
-        }
-
-        .p-card.featured {
-            background: linear-gradient(145deg, #1a1a1c 0%, #0d0d0f 100%);
-            border: 2px solid var(--success);
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
-        }
-
-        .badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--success);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .p-name { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--battery-gold); }
-        .p-price { font-size: 36px; font-weight: 800; color: #fff; margin-bottom: 5px; }
-        .p-period { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
-
-        .feature-list { list-style: none; }
-        .feature-list li {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        /* --- Advisory Services --- */
-        .advisory-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .advisory-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+        .speed-content { padding: 40px; }
+        .speed-content h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; font-weight: 800; }
+        .speed-content p { color: var(--text-muted); font-size: 1rem; margin-bottom: 25px; line-height: 1.6; }
+        .speed-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .s-stat label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--fcc-orange); margin-bottom: 5px; }
+        .s-stat div { font-size: 1.4rem; font-weight: 800; color: #fff; }
+        .speed-visual {
+            background: rgba(0,0,0,0.3);
             padding: 40px;
-            position: relative;
-        }
-
-        .advisory-card.bundled {
-            border: 2px solid var(--battery-gold);
-            background: linear-gradient(135deg, rgba(255, 198, 41, 0.05) 0%, var(--bg-card) 100%);
-        }
-
-        .advisory-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-        }
-
-        .advisory-badge.stand { background: var(--text-muted); color: #000; }
-        .advisory-badge.bundle { background: var(--battery-gold); color: #000; }
-
-        .advisory-title { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-        .advisory-price { font-size: 48px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-        .advisory-period { font-size: 14px; color: var(--text-muted); margin-bottom: 25px; }
-
-        .savings-chip {
-            display: inline-block;
-            padding: 4px 10px;
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid var(--success);
-            border-radius: 12px;
-            font-size: 12px;
-            color: var(--success);
-            font-weight: 600;
-            margin-left: 12px;
-            vertical-align: middle;
-        }
-
-        /* --- ROI --- */
-        .roi-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-            margin-top: 18px;
-        }
-        .roi-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 22px;
-        }
-        .roi-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .roi-value {
-            font-size: 28px;
-            font-weight: 800;
-            font-family: monospace;
-            color: #fff;
-            line-height: 1.1;
-        }
-        .roi-sub {
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-        .roi-card.good { border-color: rgba(16,185,129,0.35); background: linear-gradient(180deg, rgba(16,185,129,0.06) 0%, var(--bg-card) 100%); }
-        .roi-card.gold { border-color: rgba(255,198,41,0.35); background: linear-gradient(180deg, rgba(255,198,41,0.06) 0%, var(--bg-card) 100%); }
-
-        /* --- AVI Grid --- */
-        .avi-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .avi-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid rgba(255,255,255,0.1);
         }
-
-        .avi-card.featured { border: 2px solid var(--battery-gold); }
-
-        .avi-head { margin-bottom: 20px; text-align: center; }
-        .avi-name { color: var(--battery-gold); font-weight: 700; text-transform: uppercase; font-size: 14px; margin-bottom: 8px;}
-        .avi-price { font-size: 28px; font-weight: 800; }
-        .avi-save { color: var(--success); font-size: 11px; font-weight: 600; margin-top: 4px; }
-
-        .avi-features { list-style: none; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 16px; }
-        .avi-features li {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+        .omv-tag {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--success);
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .omv-sub { color: #fff; font-size: 1rem; opacity: 0.8; }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 30px;
             display: flex;
-            align-items: start;
+            align-items: center;
+            gap: 15px;
+            color: #fff;
         }
-        .avi-features li::before {
-            content: '•';
-            color: var(--battery-gold);
-            margin-right: 8px;
-            font-size: 16px;
-            line-height: 12px;
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 30px;
+            background: var(--fcc-orange);
+            display: block;
+            border-radius: 3px;
         }
-        .avi-features li.bold { color: #fff; font-weight: 600; }
-
-        .inclusion-card {
-            background: linear-gradient(90deg, rgba(255, 198, 41, 0.05), transparent);
-            border-left: 4px solid var(--battery-gold);
-            padding: 24px;
-            margin: 30px 0;
-            border-radius: 0 12px 12px 0;
+        .chart-container {
+            background: rgba(38, 59, 128, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
         }
-
-        .inclusion-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 15px;
+        .bar-chart-wrapper {
+            position: relative;
+            padding: 60px 0 20px 60px;
+            height: 450px;
         }
-        .inc-item h4 { font-size: 14px; color: #fff; margin-bottom: 4px; }
-        .inc-item p { font-size: 13px; color: var(--text-muted); }
-
-        /* --- Footer --- */
-        .footer {
-            margin-top: 80px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 40px;
-            color: var(--text-muted);
-            font-size: 13px;
+        .y-axis {
+            position: absolute; left: 0; top: 60px; bottom: 80px; width: 50px;
+            display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end;
+            font-size: 11px; color: var(--text-muted); padding-right: 10px;
         }
-
-        /* --- Responsive --- */
+        .chart-grid {
+            position: absolute; left: 60px; right: 20px; top: 60px; bottom: 80px;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .grid-line { width: 100%; height: 1px; background: rgba(255,255,255,0.05); }
+        .bar-chart {
+            display: flex; align-items: flex-end; justify-content: space-around;
+            height: 100%; padding-left: 10px; position: relative;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .bar {
+            flex: 1; max-width: 100px; margin: 0 10px;
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+            height: 100%; position: relative; padding-bottom: 0;
+        }
+        .bar-fill {
+            width: 100%; border-radius: 6px 6px 0 0; position: relative;
+            display: flex; align-items: flex-start; justify-content: center;
+            transition: height 1s ease;
+        }
+        .bar-fill.current { background: #475569; }
+        .bar-fill.q1 { background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%); }
+        .bar-fill.q2 { background: linear-gradient(180deg, #818cf8 0%, #4f46e5 100%); }
+        .bar-fill.q3 { background: linear-gradient(180deg, #a78bfa 0%, #7c3aed 100%); }
+        .bar-fill.q4 { background: linear-gradient(180deg, var(--success) 0%, #059669 100%); box-shadow: 0 0 20px rgba(16,185,129,0.3); }
+        .bar-inner { position: absolute; top: -50px; text-align: center; width: 100%; }
+        .bar-growth { font-size: 11px; color: var(--success); font-weight: 700; background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 4px; }
+        .bar-value { font-size: 14px; font-weight: 800; color: #fff; }
+        .bar-label-container { margin-top: 15px; text-align: center; }
+        .bar-label { font-size: 13px; font-weight: 700; color: #fff; }
+        .bar-period { font-size: 11px; color: var(--text-muted); }
+        .projection-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
+        .projection-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .projection-card .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .projection-card .value { font-size: 28px; font-weight: 800; color: var(--success); }
+        .projection-card .change { font-size: 12px; color: #fff; opacity: 0.7; }
+        .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 60px; }
+        .strat-card {
+            background: linear-gradient(180deg, rgba(38, 59, 128, 0.1) 0%, rgba(0,0,0,0) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 12px;
+        }
+        .strat-icon { 
+            width: 40px; height: 40px; 
+            background: var(--fcc-orange); 
+            color: #fff; 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 8px; font-weight: 800; margin-bottom: 15px; 
+        }
+        .strat-card h4 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+        .strat-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .pricing-section { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 60px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .price-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .price-card:hover { transform: translateY(-5px); border-color: var(--fcc-orange); }
+        .price-card.growth {
+            background: linear-gradient(180deg, rgba(240, 83, 35, 0.1) 0%, rgba(0,0,0,0) 100%);
+            border: 2px solid var(--fcc-orange);
+            box-shadow: 0 0 30px rgba(240, 83, 35, 0.15);
+        }
+        .tier-name { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--fcc-orange); margin-bottom: 10px; }
+        .tier-price { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
+        .tier-meta { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 15px; }
+        .check-list { list-style: none; }
+        .check-list li { font-size: 0.75rem; margin-bottom: 8px; padding-left: 15px; position: relative; color: #ddd; }
+        .check-list li::before { content: '✓'; color: var(--success); position: absolute; left: 0; font-weight: bold; }
+        .advisory-card {
+            background: var(--fcc-blue);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .advisory-badge {
+            background: #fff; color: var(--fcc-blue); 
+            font-size: 0.7rem; font-weight: 800; text-transform: uppercase; 
+            padding: 4px 10px; border-radius: 20px; align-self: flex-start; margin-bottom: 15px;
+        }
         @media (max-width: 900px) {
-            .value-grid, .comparison-container, .pricing-grid, .avi-grid, .advisory-container, .inclusion-grid, .roi-grid {
-                grid-template-columns: 1fr;
-            }
-            .t-row { grid-template-columns: 1fr; gap: 8px; }
-            .t-head { display: none; }
-            .hero-card { padding: 24px; }
-            .main-header { flex-direction: column; gap: 20px; text-align: center; }
-            .meta-date { text-align: center; }
+            .pricing-section { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .strategy-grid { grid-template-columns: 1fr; }
+            .speed-card { grid-template-columns: 1fr; }
+            .main-header { flex-direction: column; text-align: center; gap: 20px; }
+            .bar-chart-wrapper { padding-left: 0; }
+            .y-axis { display: none; }
+            .projection-metrics { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
 <div class="container">
-
     <header class="main-header">
-        <div class="logo-group">
-            <img src="https://www.charlestonbattery.com/wp-content/uploads/sites/13/2022/03/Charleston-Battery-Crest.png" alt="Charleston Battery" class="header-logo">
-            <div class="divider"></div>
-            <div class="brand-text">ATHLETIVERSE <span style="font-weight: 300; color: var(--text-muted);">SERVICE SUITE</span></div>
+        <div class="header-left">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/78/FC_Cincinnati_primary_logo_2018.svg" alt="FC Cincinnati" class="partner-logo">
+            <div class="header-divider"></div>
+            <div class="brand-name">ATHLETIVERSE <span style="font-weight: 300; color: #888;">PARTNERSHIP</span></div>
         </div>
-        <div>
-            <span class="playbook-badge">Revenue Operating System</span>
-            <div class="meta-date">PREPARED FOR JULIAN • JAN 2026</div>
+        <div class="header-right">
+            <span class="doc-badge">Digital Arbitrage & Valuation</span>
+            <div style="font-weight: 700; font-size: 1.1rem; margin: 4px 0;">Commercial Operating System</div>
+            <div class="meta-date">Prepared for Steven Young • Jan 2026</div>
         </div>
     </header>
-    <div class="section">
-        <div class="hero-card">
-            <h3>The Athletiverse Difference: All-in-One Infrastructure</h3>
-            <p>Athletiverse is a digital operating system that orchestrates content creation, sponsorship sales, and analytics—helping teams do more with less. Real-time performance data proves partner ROI, while strategic advisory turns insight into revenue, enabling Charleston Battery to increase output, validate sponsor value, close larger deals, and reduce operating costs by 51%.</p>
-        </div>
 
-        <div class="section-header">
-            <h2 class="section-title">Why Teams Choose an OS</h2>
-            <span class="section-tag">Point Solutions vs. OS</span>
-        </div>
-
-        <div class="value-grid">
-            <div class="value-card">
-                <div class="value-icon">📊</div>
-                <div class="value-title">Services</div>
-                <div class="value-desc">Content creation, account management, newsletters, video editing, visual identity—delivered at scale.</div>
+    <div class="os-banner">
+        <h1 class="os-title">Turning Social Cost Centers into Revenue Assets</h1>
+        <p class="os-text">
+            Athletiverse is a digital operating system that orchestrates content creation, sponsorship sales, and analytics—helping teams do more with less.
+            <br><br>
+            We work with partners ranging from <strong>Unrivaled Basketball</strong> and <strong>Team USA</strong> to <strong>Investment Funds</strong> to help maximize digital value and reduce operational costs for asset operators.
+        </p>
+        <div class="client-pills">
+            <div class="client-pill">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Unrivalled_%28basketball_league%29.svg/960px-Unrivalled_%28basketball_league%29.svg.png" alt="Unrivaled Basketball">
+                Unrivaled Basketball
             </div>
-            <div class="value-card">
-                <div class="value-icon">🎯</div>
-                <div class="value-title">Advisory</div>
-                <div class="value-desc">Strategic guidance, competitive positioning, sponsorship sales enablement, quarterly reviews.</div>
+            <div class="client-pill">
+                <img src="https://cdn.sanity.io/images/oyf3dba6/production/bf72ee7b299178803e565d6c872cdb4baf2aef2d-640x877.png" alt="Team USA">
+                Team USA
             </div>
-            <div class="value-card">
-                <div class="value-icon">📈</div>
-                <div class="value-title">Analytics</div>
-                <div class="value-desc">Real-time EMV tracking, sponsor ROI measurement, competitor benchmarking via AVI platform.</div>
+            <div class="client-pill">
+                <img src="https://momentous-sports.com/wp-content/uploads/2025/06/White-With-Shadow-1024x202.png" alt="Investment Funds">
+                Investment Funds
             </div>
-            <div class="value-card">
-                <div class="value-icon">🤖</div>
-                <div class="value-title">Content Intel</div>
-                <div class="value-desc">AI-powered recommendations on what to create next, not just what performed yesterday.</div>
-            </div>
-        </div>
-
-        <div style="margin-top:30px;" class="hero-card success">
-             <h3>No Other Partner Delivers This Integration</h3>
-             <p>Traditional agencies give you execution without data. Analytics platforms give you dashboards without action. Athletiverse is the <strong>only operating system</strong> that connects creative output, real-time sponsor attribution, strategic advisory, and content intelligence—so every post you create is backed by data, every sponsor conversation is backed by ROI proof, and every decision is backed by AI guidance.</p>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-header">
-            <h2 class="section-title">Current vs Proposed Cost Structure</h2>
-        </div>
-
-        <div class="comparison-container">
-            <div class="cost-column current">
-                <div class="cost-header">Current Annual Costs</div>
-                <div class="cost-row">
-                    <span class="label">2-3 Marketing Staff</span>
-                    <span class="amount red">$45,000</span>
-                </div>
-                <div class="cost-row">
-                    <span class="label">Sprout Social</span>
-                    <span class="amount red">$3,600</span>
-                </div>
-                <div class="cost-row">
-                    <span class="label">Other Tools/Software</span>
-                    <span class="amount red">$2,400</span>
-                </div>
-                <div class="cost-row">
-                    <span class="label">Opportunity Cost (Lost Deals)</span>
-                    <span class="amount red">$50,000+</span>
-                </div>
-                <div class="cost-total">
-                    <span class="label">Total Annual Cost</span>
-                    <span class="amount red">~$101,000</span>
-                </div>
-            </div>
-
-            <div class="cost-column proposed">
-                <div class="cost-header">Proposed Annual Investment</div>
-                <div class="cost-row">
-                    <span class="label">AVI Platform (Starter)</span>
-                    <span class="amount">$4,580</span>
-                </div>
-                <div class="cost-row">
-                    <span class="label">Creative Services (Growth)</span>
-                    <span class="amount">$42,900</span>
-                </div>
-                <div class="cost-row">
-                    <span class="label">Strategic Advisory (Bundled w/ AVI)</span>
-                    <span class="amount">$12,000</span>
-                </div>
-                <div class="cost-total">
-                    <span class="label" style="color:#fff">Total Annual Investment</span>
-                    <span class="amount green">$59,480</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="savings-banner">
-            <h3 style="color:var(--text-muted); font-size:18px; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Net Annual Savings + Strategic Advantage</h3>
-            <div class="savings-number">$41,520</div>
-            <div style="color:var(--text-muted)">41% cost reduction with improved output quality + sponsor sales infrastructure</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-header">
-            <h2 class="section-title">ROI Snapshot</h2>
-            <span class="section-tag">Advisory + AVI Starter + Growth Creative</span>
-        </div>
-
-        <div class="hero-card" style="border-color: rgba(255,198,41,0.35);">
-            <h3 style="color: var(--battery-gold);">What this bundle buys you (in plain terms)</h3>
+    <div class="speed-card">
+        <div class="speed-content">
+            <h3>The Viral Arbitrage: Valuing "Speed"</h3>
             <p>
-                You’re not adding a “consulting layer.” You’re pairing a recurring advisory cadence to AVI’s reporting + projections,
-                so strategy, sponsor proof, and execution stay in one loop. This is the package that makes reporting usable in sales,
-                and makes performance data turn into weekly creative + commercial decisions.
+                You mentioned the <strong>IShowSpeed</strong> post on X (Twitter) generated massive engagement (900k+ impressions), but the value was invisible to ownership because you are only tracking Instagram.
+                <br><br>
+                This is the arbitrage: Taking an organic asset you already own and assigning a defensible market value to it.
             </p>
-
-            <div class="roi-grid">
-                <div class="roi-card gold">
-                    <div class="roi-label">Annual investment</div>
-                    <div class="roi-value">$59,480</div>
-                    <div class="roi-sub">AVI Starter ($4,580/yr) + Growth Creative ($42,900/yr) + Advisory w/ AVI ($12,000/yr)</div>
+            <div class="speed-stat-grid">
+                <div class="s-stat">
+                    <label>Platform</label>
+                    <div>X (Twitter)</div>
                 </div>
-
-                <div class="roi-card good">
-                    <div class="roi-label">Net savings vs current</div>
-                    <div class="roi-value">$41,520</div>
-                    <div class="roi-sub">Baseline ~ $101,000/yr → Proposed $59,480/yr</div>
+                <div class="s-stat">
+                    <label>Impressions</label>
+                    <div>899,000+</div>
                 </div>
-
-                <div class="roi-card">
-                    <div class="roi-label">Effective ROI</div>
-                    <div class="roi-value">~70%</div>
-                    <div class="roi-sub">Computed as Savings ÷ Investment (41,520 ÷ 59,480)</div>
+                <div class="s-stat">
+                    <label>Est. Ad Equiv.</label>
+                    <div>$900,816</div>
                 </div>
-
-                <div class="roi-card">
-                    <div class="roi-label">Monthly delta</div>
-                    <div class="roi-value">+$3,460</div>
-                    <div class="roi-sub">Average monthly cost reduction vs baseline (41,520 ÷ 12)</div>
+                <div class="s-stat">
+                    <label>Production Cost</label>
+                    <div>$0 (Organic)</div>
                 </div>
             </div>
-
-            <div style="margin-top:18px; color: var(--text-muted); font-size: 13px;">
-                Note: The time-savings table below (1,040 hours / $26,000) is shown as operational capacity reclaimed.
-                Depending on your staffing mix, that “value” can be realized as reduced contractor spend, fewer outsourced tasks,
-                or repurposed time into sponsor sales + ticketing campaigns.
-            </div>
+        </div>
+        <div class="speed-visual">
+            <div style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:#fff; margin-bottom:10px;">Calculated Media Value</div>
+            <div class="omv-tag">$900,816</div>
+            <div class="omv-sub">Single Post Valuation</div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-header">
-            <h2 class="section-title">Time & Cost Savings Breakdown</h2>
-        </div>
+        <h2 class="section-title">12-Month Revenue Projection</h2>
+        <div class="chart-container">
+            <div style="text-align:center; margin-bottom:10px;">
+                <h3 style="font-size:1.4rem; color:#fff; margin-bottom:5px;">Optimized Value Trajectory</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">From current snapshot to fully optimized cross-platform inventory</p>
+            </div>
 
-        <div class="hero-card" style="border-color: #f59e0b;">
-             <h3 style="color:#f59e0b">Reclaim 1,040 Hours Annually</h3>
-             <p>Based on USL Championship benchmarks, your current setup requires approximately 1,040 hours annually of manual work that Athletiverse automates or handles more efficiently—saving an estimated $26,000 in labor costs at $25/hour while freeing your team to focus on strategy and revenue growth.</p>
-        </div>
+            <div class="bar-chart-wrapper">
+                <div class="y-axis">
+                    <span>$1.8M</span><span>$1.4M</span><span>$1.0M</span><span>$0.6M</span><span>$0.2M</span>
+                </div>
+                <div class="chart-grid">
+                    <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
+                </div>
 
-        <div class="table-card">
-            <div class="t-row t-head">
-                <div>Task</div>
-                <div>Hours/Year</div>
-                <div>Cost (@$25/hr)</div>
-                <div>Athletiverse Solution</div>
+                <div class="bar-chart">
+                    <div class="bar">
+                        <div class="bar-fill current" style="height: 60%;"> <div class="bar-inner">
+                                <div class="bar-value">$1.05M</div>
+                            </div>
+                        </div>
+                        <div class="bar-label-container">
+                            <div class="bar-label">Current</div>
+                            <div class="bar-period">Baseline</div>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="bar-fill q1" style="height: 75%;"> <div class="bar-inner">
+                                <div class="bar-growth">+25%</div>
+                                <div class="bar-value">$1.31M</div>
+                            </div>
+                        </div>
+                        <div class="bar-label-container">
+                            <div class="bar-label">Q1 2026</div>
+                            <div class="bar-period">Jan - Mar</div>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="bar-fill q2" style="height: 84%;"> <div class="bar-inner">
+                                <div class="bar-growth">+40%</div>
+                                <div class="bar-value">$1.47M</div>
+                            </div>
+                        </div>
+                        <div class="bar-label-container">
+                            <div class="bar-label">Q2 2026</div>
+                            <div class="bar-period">Apr - Jun</div>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="bar-fill q3" style="height: 90%;"> <div class="bar-inner">
+                                <div class="bar-growth">+50%</div>
+                                <div class="bar-value">$1.58M</div>
+                            </div>
+                        </div>
+                        <div class="bar-label-container">
+                            <div class="bar-label">Q3 2026</div>
+                            <div class="bar-period">Jul - Sep</div>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="bar-fill q4" style="height: 96%;"> <div class="bar-inner">
+                                <div class="bar-growth">+60%</div>
+                                <div class="bar-value">$1.68M</div>
+                            </div>
+                        </div>
+                        <div class="bar-label-container">
+                            <div class="bar-label">Q4 2026</div>
+                            <div class="bar-period">Oct - Dec</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="t-row">
-                <div>Daily Social Posting (5x/week)</div>
-                <div>260</div>
-                <div>$6,500</div>
-                <div class="col-highlight">Account Mgmt + AVI</div>
-            </div>
-            <div class="t-row">
-                <div>Custom Graphics & Design Work</div>
-                <div>312</div>
-                <div>$7,800</div>
-                <div class="col-highlight">Creative Services</div>
-            </div>
-            <div class="t-row">
-                <div>Video Editing & Post-Production</div>
-                <div>156</div>
-                <div>$3,900</div>
-                <div class="col-highlight">Video Services</div>
-            </div>
-            <div class="t-row">
-                <div>Email Marketing & Newsletters</div>
-                <div>104</div>
-                <div>$2,600</div>
-                <div class="col-highlight">Email Services</div>
-            </div>
-            <div class="t-row">
-                <div>DM Mgmt & Community Engagement</div>
-                <div>156</div>
-                <div>$3,900</div>
-                <div class="col-highlight">Account Mgmt</div>
-            </div>
-             <div class="t-row">
-                <div>Sponsor Performance Tracking</div>
-                <div>52</div>
-                <div>$1,300</div>
-                <div class="col-highlight">AVI Platform</div>
-            </div>
-             <div class="t-row t-head">
-                <div>Total Annual Savings</div>
-                <div>1,040 hrs</div>
-                <div>$26,000</div>
-                <div>Fully Automated</div>
+
+            <div class="projection-metrics">
+                <div class="projection-card">
+                    <div class="label">Annual EMV Growth</div>
+                    <div class="value">$6.5M</div>
+                    <div class="change">+520% vs current run rate</div>
+                </div>
+                <div class="projection-card">
+                    <div class="label">New Revenue (5% Monetization)</div>
+                    <div class="value">$325K</div>
+                    <div class="change">Conservative Estimate</div>
+                </div>
+                <div class="projection-card">
+                    <div class="label">Platform ROI</div>
+                    <div class="value">32.5X</div>
+                    <div class="change">On $10K annual cost</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-header">
-            <h2 class="section-title">Creative Services Packages</h2>
+    <h2 class="section-title">Revenue Roadmap: Unlocking Hidden Value</h2>
+    <div class="strategy-grid">
+        <div class="strat-card">
+            <div class="strat-icon">01</div>
+            <h4>Cross-Platform Scale (Twitter/X)</h4>
+            <p><strong>Priority 1:</strong> Integrate the FC Cincinnati X (Twitter) account immediately. This captures the full value of the "Speed" post and other viral moments that are currently invisible in your Instagram-only data, likely increasing total valuation by 40%+.</p>
         </div>
+        <div class="strat-card">
+            <div class="strat-icon">02</div>
+            <h4>Prove "Dollars & Cents" to Ownership</h4>
+            <p>Move beyond "impressions." We will generate <strong>Executive Reports</strong> that translate social engagement into Earned Media Value (EMV) dollars. This gives your CRO the ammunition to justify marketing spend and prove ROI to partners like Mercy Health.</p>
+        </div>
+        <div class="strat-card">
+            <div class="strat-icon">03</div>
+            <h4>Player & Collaborator Valuation</h4>
+            <p>Track value generated by players (e.g., Lucho Acosta) and off-pitch influencers. This data quantifies the "halo effect" of your roster, supporting fair market value discussions for NIL and player marketing obligations.</p>
+        </div>
+        <div class="strat-card">
+            <div class="strat-icon">04</div>
+            <h4>Hashtag Inventory & Ticketing</h4>
+            <p>Create "sellable buckets" of content (e.g., #AllForCincy). By correlating engagement on specific game-day hashtags with ticketing data, we can identify which content formats actually drive gate revenue.</p>
+        </div>
+    </div>
 
-        <p style="margin-bottom:20px; color:var(--text-muted)">All packages include weekly creative deliveries to maintain consistent content flow and momentum. Each tier includes ticket automation and social setup to streamline your operations from day one.</p>
-
+    <h2 class="section-title">Recommended Execution Plan</h2>
+    <div class="pricing-section">
         <div class="pricing-grid">
-            <div class="p-card">
-                <div class="p-name">Starter</div>
-                <div class="p-price">$1,750</div>
-                <div class="p-period">per month</div>
-                <ul class="feature-list">
-                    <li>4 custom social graphics/mo (weekly)</li>
-                    <li>4 short-form video edits/mo (weekly)</li>
-                    <li>2 newsletters with copywriting (bi-weekly)</li>
-                    <li>Basic account management support</li>
-                    <li>Ticket automation & social setup included</li>
-                    <li>5 business day turnaround</li>
-                    <li>Weekly delivery schedule</li>
-                    <li>Monthly strategy check-in call</li>
+            <div class="price-card">
+                <div class="tier-name">Starter</div>
+                <div class="tier-price">$449<span style="font-size:1rem;">/mo</span></div>
+                <div class="tier-meta">3 Accounts • 200 Posts</div>
+                <ul class="check-list">
+                    <li>Basic Analytics</li>
+                    <li>365-Day Retention</li>
+                    <li>3 User Seats</li>
                 </ul>
             </div>
-
-            <div class="p-card featured">
-                <div class="badge">Recommended</div>
-                <div class="p-name" style="color:var(--battery-gold)">Growth</div>
-                <div class="p-price">$3,575</div>
-                <div class="p-period">per month</div>
-                <ul class="feature-list">
-                    <li>8 custom social graphics/mo (2 per week)</li>
-                    <li>6 short-form video edits/mo</li>
-                    <li>4 newsletters with full copywriting (weekly)</li>
-                    <li>3 custom newsletter designs/month</li>
-                    <li>Daily posting & DM management (5 days/week)</li>
-                    <li>Ticket automation & social setup included</li>
-                    <li>Email campaign management</li>
-                    <li>3 business day turnaround</li>
-                    <li>Bi-weekly strategy calls (8/month)</li>
+            <div class="price-card growth">
+                <div style="position:absolute; top:-10px; right:20px; background:var(--fcc-orange); color:#fff; font-size:0.6rem; font-weight:800; padding:2px 8px; border-radius:4px;">RECOMMENDED</div>
+                <div class="tier-name">Growth</div>
+                <div class="tier-price">$899<span style="font-size:1rem;">/mo</span></div>
+                <div class="tier-meta">7 Accounts • 800 Posts</div>
+                <ul class="check-list">
+                    <li><strong>Cross-Platform (Twitter Integration)</strong></li>
+                    <li><strong>Advanced AI Insights</strong></li>
+                    <li><strong>10 Competitor Benchmarks</strong></li>
+                    <li>Sponsor Projections</li>
                 </ul>
             </div>
-
-            <div class="p-card">
-                <div class="p-name">Professional</div>
-                <div class="p-price">$5,500</div>
-                <div class="p-period">per month</div>
-                <ul class="feature-list">
-                    <li>12 custom social graphics/mo (3 per week)</li>
-                    <li>10 short-form video edits/mo</li>
-                    <li>4 newsletters with full copywriting (weekly)</li>
-                    <li>4 custom newsletter designs with brand refresh</li>
-                    <li>Full account management (7 days/week)</li>
-                    <li>Ticket automation & social setup included</li>
-                    <li>Email automation & lifecycle campaigns</li>
-                    <li>Visual identity development</li>
-                    <li>48-hour turnaround</li>
-                    <li>Dedicated Slack channel</li>
+            <div class="price-card">
+                <div class="tier-name">Scale</div>
+                <div class="tier-price">$1,999<span style="font-size:1rem;">/mo</span></div>
+                <div class="tier-meta">15 Accounts • 1,200 Posts</div>
+                <ul class="check-list">
+                    <li>Full AI Suite</li>
+                    <li>Media Analysis</li>
+                    <li>25 Competitors</li>
                 </ul>
             </div>
         </div>
 
-        <div style="margin-top:30px;" class="hero-card">
-            <h4 style="color:#fff; margin-bottom:10px; font-size:18px;">What's Included in Every Package</h4>
-            <p><strong>Ticket Automation & Social Setup:</strong> We'll configure your ticketing workflows, social media scheduling systems, and automation tools to eliminate manual work from day one. This includes CRM integration, automated posting schedules, and ticket sales funnel setup—everything needed to turn your marketing infrastructure into a revenue-generating machine.</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-header">
-            <h2 class="section-title">Strategic Advisory Services</h2>
-            <span class="section-tag">Linked with AVI</span>
-        </div>
-
-        <div class="advisory-container">
-            <div class="advisory-card">
-                <span class="advisory-badge stand">Standalone</span>
-                <h3 class="advisory-title">Strategic Advisory</h3>
-                <div class="advisory-price">$2,500</div>
-                <div class="advisory-period">per month</div>
-
-                <ul class="feature-list">
-                    <li>Weekly sales enablement calls</li>
-                    <li>Sponsorship asset valuation & packaging</li>
-                    <li>Competitive benchmarking & positioning</li>
-                    <li>Quarterly revenue reviews</li>
-                    <li>Direct access to Athletiverse strategy team</li>
-                </ul>
+        <div class="advisory-card">
+            <div>
+                <span class="advisory-badge" style="background:#fff; color:var(--fcc-blue); padding:4px 12px; border-radius:12px; font-weight:800; font-size:0.8rem; text-transform:uppercase;">Executive Reporting Add-On</span>
+                <h3 style="color:#fff; font-size:1.5rem; margin-top:10px;">Strategic Advisory Services</h3>
+                <p style="color:#fff; opacity:0.8; margin-top:5px;">Quarterly "Owner-Ready" reports proving the dollars & cents of social.</p>
             </div>
-
-            <div class="advisory-card bundled">
-                <span class="advisory-badge bundle">Bundled with AVI</span>
-                <h3 class="advisory-title" style="color:var(--battery-gold)">AVI + Advisory Bundle</h3>
-                <div class="advisory-price">$1,000 <span class="savings-chip">Save $1,500/mo</span></div>
-                <div class="advisory-period">per month (when coupled with any AVI plan)</div>
-
-                <ul class="feature-list">
-                    <li><strong>Everything in Standalone +</strong></li>
-                    <li>Advisory sessions anchored to AVI dashboards + sponsor reporting</li>
-                    <li>Monthly sponsor-ready report package (proof + narrative)</li>
-                    <li>Quarterly projection refresh (packages, pricing, inventory)</li>
-                    <li>Unified operating cadence: forecast → ship → measure → iterate</li>
-                </ul>
+            <div style="text-align:right;">
+                <div style="font-size:2.5rem; font-weight:800; color:var(--success);">$750<span style="font-size:1rem; color:#fff;">/mo</span></div>
+                <div style="font-size:0.8rem; color:#fff; opacity:0.6;">(Discounted from $1,500)</div>
             </div>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-header">
-            <h2 class="section-title">AVI Platform</h2>
-        </div>
-
-        <div class="inclusion-card">
-            <h3 style="color:var(--text-main); margin-bottom:8px;">Included in Every AVI Package</h3>
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:15px;">Every AVI plan includes the same high-leverage enablement layer—so your sponsors and leadership always see clear proof, projections, and decision-ready reporting.</p>
-
-            <div class="inclusion-grid">
-                <div class="inc-item">
-                    <h4>Priority Support</h4>
-                    <p>Fast response SLAs for urgent reporting and sponsor needs.</p>
-                </div>
-                <div class="inc-item">
-                    <h4>Sponsor Campaign Projections</h4>
-                    <p>Pre-campaign EMV/ROI projection models for proposals.</p>
-                </div>
-                <div class="inc-item">
-                    <h4>Custom Leadership Reports</h4>
-                    <p>Executive-ready reporting tailored for ownership.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="avi-grid">
-            <div class="avi-card featured">
-                <div class="avi-head">
-                    <div class="avi-name">Starter</div>
-                    <div class="avi-price">$449</div>
-                    <div class="avi-save">Save 15% annually ($4,580/yr)</div>
-                </div>
-                <ul class="avi-features">
-                    <li>3 social accounts</li>
-                    <li>200 posts tracked/mo</li>
-                    <li>3 user seats</li>
-                    <li>365-day retention</li>
-                    <li>Basic AI insights</li>
-                    <li class="bold">Priority Support (Included)</li>
-                    <li class="bold">Sponsor Projections (Included)</li>
-                    <li class="bold">Leadership Reports (Included)</li>
-                </ul>
-            </div>
-
-            <div class="avi-card">
-                <div class="avi-head">
-                    <div class="avi-name">Growth</div>
-                    <div class="avi-price">$899</div>
-                    <div class="avi-save">Save 20% annually ($8,630/yr)</div>
-                </div>
-                <ul class="avi-features">
-                    <li>7 social accounts</li>
-                    <li>800 posts tracked/mo</li>
-                    <li>5 user seats</li>
-                    <li>10 competitor benchmarks</li>
-                    <li>Advanced AI insights</li>
-                    <li class="bold">Priority Support (Included)</li>
-                    <li class="bold">Sponsor Projections (Included)</li>
-                    <li class="bold">Leadership Reports (Included)</li>
-                </ul>
-            </div>
-
-            <div class="avi-card">
-                <div class="avi-head">
-                    <div class="avi-name">Scale</div>
-                    <div class="avi-price">$1,999</div>
-                    <div class="avi-save">Save 25% annually ($17,991/yr)</div>
-                </div>
-                <ul class="avi-features">
-                    <li>15 social accounts</li>
-                    <li>1,200 posts tracked/mo</li>
-                    <li>12 user seats</li>
-                    <li>25 competitor benchmarks</li>
-                    <li>Media analysis included</li>
-                    <li>1-year data retention</li>
-                    <li class="bold">Full AI Suite</li>
-                    <li class="bold">Priority Support (Included)</li>
-                    <li class="bold">Sponsor Projections (Included)</li>
-                    <li class="bold">Leadership Reports (Included)</li>
-                </ul>
-            </div>
-
-             <div class="avi-card">
-                <div class="avi-head">
-                    <div class="avi-name">Enterprise</div>
-                    <div class="avi-price">Custom</div>
-                    <div class="avi-save">Full Integration</div>
-                </div>
-                <ul class="avi-features">
-                    <li>Unlimited accounts</li>
-                    <li>Unlimited tracking</li>
-                    <li>Unlimited seats</li>
-                    <li>Custom API Access</li>
-                    <li>Dedicated Analyst</li>
-                    <li>White-label options</li>
-                </ul>
-            </div>
-        </div>
+    <div style="text-align:center; margin-top:60px; border-top:1px solid rgba(255,255,255,0.1); padding-top:40px; color:var(--text-muted); font-size:0.8rem;">
+        <div style="font-weight:800; color:#fff; font-size:1rem; margin-bottom:5px;">ATHLETIVERSE</div>
+        Confidential Proposal for FC Cincinnati • Generated Jan 2026
     </div>
-
-    <div class="footer">
-        <p>&copy; 2026 Athletiverse. Confidential Proposal for Charleston Battery.</p>
-    </div>
-
 </div>
-
 </body>
 </html>
